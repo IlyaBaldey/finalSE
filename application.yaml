@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: baldey23
+    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+indexing-settings:
+  sites:
+#    - url: https://radiomv.ru/
+#      name: Милицейская волна
+    - url: https://www.svetlovka.ru/
+      name: Светловка
+    - url: http://www.playback.ru/
+      name: Playback
+
+
+connect:
+  useragent: Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6
+  referrer: http://www.google.com
+
+error:
+  interrupted: Indexing stopped by user
+  certificate: Site's certificate validity check failed
+  unknown: Unknown error
+
+file:
+  extensions: pdf|PDF|docx?|DOCX?|xlsx?|XLSX?|pptx?|PPTX?|jpe?g|JPE?G|gif|GIF|png|PNG|mp3|MP3|mp4|MP4|aac|AAC|json|JSON|csv|CSV|exe|EXE|apk|APK|rar|RAR|zip|ZIP|xml|XML|jar|JAR|bin|BIN|svg|SVG|nc|NC|webp|WEBP|m|M|fig|FIG|eps|EPS
+
+selector:
+  weight:
+    title: 1.0
+    body: 0.8
+
+snippet:
+  border: 5
+
